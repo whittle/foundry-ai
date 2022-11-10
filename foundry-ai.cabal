@@ -1,0 +1,83 @@
+name:                foundry-ai
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/whittle/foundry-ai#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Jason Whittle
+maintainer:          jason.whittle@gmail.com
+copyright:           © 2022 Jason A. Whittle
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+                     CHANGELOG.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Example
+  build-depends:       base >= 4.7 && < 5
+                     , aeson
+                     , scotty
+                     , wai
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints
+
+executable foundry-ai-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  build-depends:       base
+                     , foundry-ai
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints
+                       -O2
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+
+test-suite foundry-ai-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , foundry-ai
+                     , hspec
+                     , hspec-wai
+                     , hspec-wai-json
+                     , http-types
+                     , aeson
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints
+                       -O2
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+
+source-repository head
+  type:     git
+  location: https://github.com/whittle/foundry-ai
