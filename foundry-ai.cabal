@@ -1,83 +1,71 @@
-name:                foundry-ai
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/whittle/foundry-ai#readme
-license:             BSD3
-license-file:        LICENSE
-author:              Jason Whittle
-maintainer:          jason.whittle@gmail.com
-copyright:           © 2022 Jason A. Whittle
-category:            Web
-build-type:          Simple
-extra-source-files:  README.md
-                     CHANGELOG.md
-cabal-version:       >=1.10
+cabal-version: 1.12
 
-library
-  hs-source-dirs:      src
-  exposed-modules:     Example
-  build-depends:       base >= 4.7 && < 5
-                     , aeson
-                     , scotty
-                     , wai
-  default-language:    Haskell2010
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-record-updates
-                       -Wincomplete-uni-patterns
-                       -Wmissing-export-lists
-                       -Wmissing-home-modules
-                       -Wpartial-fields
-                       -Wredundant-constraints
+-- This file has been generated from package.yaml by hpack version 0.34.6.
+--
+-- see: https://github.com/sol/hpack
 
-executable foundry-ai-exe
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  build-depends:       base
-                     , foundry-ai
-  default-language:    Haskell2010
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-record-updates
-                       -Wincomplete-uni-patterns
-                       -Wmissing-export-lists
-                       -Wmissing-home-modules
-                       -Wpartial-fields
-                       -Wredundant-constraints
-                       -O2
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-
-test-suite foundry-ai-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  main-is:             Spec.hs
-  build-depends:       base
-                     , foundry-ai
-                     , hspec
-                     , hspec-wai
-                     , hspec-wai-json
-                     , http-types
-                     , aeson
-  default-language:    Haskell2010
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-record-updates
-                       -Wincomplete-uni-patterns
-                       -Wmissing-export-lists
-                       -Wmissing-home-modules
-                       -Wpartial-fields
-                       -Wredundant-constraints
-                       -O2
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
+name:           foundry-ai
+version:        0.1.0.0
+synopsis:       Control Foundry from a Haskell process
+description:    Comprised of two parts: a Haskell websocket server and a Foundry module. Together, allows control of Foundry from a separate process, coded in Haskell.
+category:       Web
+homepage:       https://github.com/whittle/foundry-ai#readme
+bug-reports:    https://github.com/whittle/foundry-ai/issues
+author:         Jason Whittle
+maintainer:     jason.whittle@gmail.com
+copyright:      © 2022 Jason A. Whittle
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
 
 source-repository head
-  type:     git
+  type: git
   location: https://github.com/whittle/foundry-ai
+
+library
+  exposed-modules:
+      Example
+  other-modules:
+      Paths_foundry_ai
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , scotty
+    , wai
+  default-language: Haskell2010
+
+executable foundry-ai-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_foundry_ai
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , foundry-ai
+  default-language: Haskell2010
+
+test-suite foundry-ai-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_foundry_ai
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base
+    , foundry-ai
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , http-types
+  default-language: Haskell2010

@@ -1,0 +1,69 @@
+name: foundry-ai
+version: '0.1.0.0'
+synopsis: Control Foundry from a Haskell process
+description: >
+  Comprised of two parts: a Haskell websocket server and a Foundry
+  module. Together, allows control of Foundry from a separate process,
+  coded in Haskell.
+category: Web
+author: Jason Whittle
+maintainer: jason.whittle@gmail.com
+copyright: © 2022 Jason A. Whittle
+license: BSD3
+github: whittle/foundry-ai
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+  exposed-modules:
+  - Example
+  dependencies:
+  - base >=4.7 && <5
+  - aeson
+  - scotty
+  - wai
+
+executables:
+  foundry-ai-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -O2
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - foundry-ai
+
+tests:
+  foundry-ai-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -O2
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - foundry-ai
+    - hspec
+    - hspec-wai
+    - hspec-wai-json
+    - http-types
+    - aeson
