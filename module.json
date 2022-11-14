@@ -5,12 +5,17 @@
   "authors": [
     {
       "name": "Jason Whittle",
-      "email": "jason.whittle@gmail.com"
+      "email": "jason.whittle@gmail.com",
+      "url": "https://github.com/whittle",
+      "discord": "whittle#3081"
     }
   ],
   "version": "0.0.1",
   "compatibility": {
     "minimum": "10",
     "verified": "10"
-  }
+  },
+  "esmodules": [
+    "js/foundry-ai.js"
+  ]
 }
