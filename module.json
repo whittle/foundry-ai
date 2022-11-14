@@ -1,0 +1,16 @@
+{
+  "id": "foundry-ai",
+  "title": "Foundry AI—External control of Foundry",
+  "description": "Sends a server events describing everything that’s happening in the game canvas, and accepts commmands back that describe changes to make to the canvas.",
+  "authors": [
+    {
+      "name": "Jason Whittle",
+      "email": "jason.whittle@gmail.com"
+    }
+  ],
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  }
+}
