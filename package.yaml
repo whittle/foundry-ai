@@ -30,12 +30,15 @@ ghc-options:
 library:
   source-dirs: src
   exposed-modules:
-  - Example
+  - FoundryAI
   dependencies:
   - base >=4.7 && <5
   - aeson
   - scotty
+  - text
   - wai
+  - wai-websockets
+  - websockets
 
 executables:
   foundry-ai-exe:
@@ -49,6 +52,9 @@ executables:
     dependencies:
     - base
     - foundry-ai
+    - conferer
+    - conferer-warp
+    - warp
 
 tests:
   foundry-ai-test:

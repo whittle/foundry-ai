@@ -6,13 +6,13 @@ import           Test.Hspec.Wai
 import           Test.Hspec.Wai.JSON
 import           Network.HTTP.Types.Header
 
-import           Example (app)
+import           FoundryAI (waiApp)
 
 main :: IO ()
 main = hspec spec
 
 spec :: Spec
-spec = with app $ do
+spec = with waiApp $ do
   describe "GET /" $ do
     it "responds with 200" $ do
       get "/" `shouldRespondWith` 200

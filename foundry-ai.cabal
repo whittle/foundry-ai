@@ -27,7 +27,7 @@ source-repository head
 
 library
   exposed-modules:
-      Example
+      FoundryAI
   other-modules:
       Paths_foundry_ai
   hs-source-dirs:
@@ -37,7 +37,10 @@ library
       aeson
     , base >=4.7 && <5
     , scotty
+    , text
     , wai
+    , wai-websockets
+    , websockets
   default-language: Haskell2010
 
 executable foundry-ai-exe
@@ -49,7 +52,10 @@ executable foundry-ai-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
+    , conferer
+    , conferer-warp
     , foundry-ai
+    , warp
   default-language: Haskell2010
 
 test-suite foundry-ai-test
