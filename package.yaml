@@ -2,9 +2,7 @@ name: foundry-ai
 version: '0.1.0.0'
 synopsis: Control Foundry from a Haskell process
 description: >
-  Comprised of two parts: a Haskell websocket server and a Foundry
-  module. Together, allows control of Foundry from a separate process,
-  coded in Haskell.
+  A WebSocket server for controlling Foundry VTT remotely.
 category: Web
 author: Jason Whittle
 maintainer: jason.whittle@gmail.com
