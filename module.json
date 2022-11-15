@@ -1,7 +1,7 @@
 {
   "id": "foundry-ai",
-  "title": "Foundry AI—External control of Foundry",
-  "description": "Sends a server events describing everything that’s happening in the game canvas, and accepts commmands back that describe changes to make to the canvas.",
+  "title": "Foundry AI",
+  "description": "Sends a Foundry AI server events describing everything that’s happening in the game, and accepts commmands back that describe changes to make to the game state.",
   "authors": [
     {
       "name": "Jason Whittle",
@@ -17,5 +17,12 @@
   },
   "esmodules": [
     "js/foundry-ai.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "./js/lang/en.json"
+    }
   ]
 }

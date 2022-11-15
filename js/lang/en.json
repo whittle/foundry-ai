@@ -1,0 +1,10 @@
+{
+  "foundry-ai": {
+    "settings": {
+      "server_url": {
+	"name": "Server URL",
+	"hint": "The URL of a Foundry AI server."
+      }
+    }
+  }
+}
