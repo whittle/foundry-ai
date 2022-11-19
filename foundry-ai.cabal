@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.6.
+-- This file has been generated from package.yaml by hpack version 0.35.0.
 --
 -- see: https://github.com/sol/hpack
 
 name:           foundry-ai
 version:        0.1.0.0
 synopsis:       Control Foundry from a Haskell process
-description:    Comprised of two parts: a Haskell websocket server and a Foundry module. Together, allows control of Foundry from a separate process, coded in Haskell.
+description:    A WebSocket server for controlling Foundry VTT remotely.
 category:       Web
 homepage:       https://github.com/whittle/foundry-ai#readme
 bug-reports:    https://github.com/whittle/foundry-ai/issues
@@ -29,6 +29,7 @@ library
   exposed-modules:
       FoundryAI
   other-modules:
+      FoundryAI.GameState
       Paths_foundry_ai
   hs-source-dirs:
       src

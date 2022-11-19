@@ -9,12 +9,17 @@ Hooks.once('setup', async () => {
     Log.debug('Initializing');
     FoundryAI.registerSettings();
     const serverUrl = FoundryAI.getServerUrl();
-    window.FoundryAI = new FoundryAI(serverUrl);
+    window.foundryAI = new FoundryAI(serverUrl);
 });
 
 Hooks.once('ready', async () => {
     Log.debug('Pinging WebSocket server.');
-    window.FoundryAI.ping();
+    window.foundryAI.ping();
+});
+
+Hooks.once('canvasReady', async (canvas) => {
+    Log.debug('Sending canvas to server.');
+    window.foundryAI.sendCanvas(canvas);
 });
 
 class FoundryAI {
@@ -23,8 +28,9 @@ class FoundryAI {
 	if (!serverUrl) {
 	    Log.error(SETTING_SERVER_URL+' setting is blank: not connecting to server.');
 	} else {
-	    Log.debug('Opening new WebSocket to '+serverUrl);
-	    this.initWebSocket(serverUrl);
+	    this.serverUrl = serverUrl
+	    Log.debug('Opening new WebSocket to '+this.serverUrl);
+	    this.initWebSocket(this.serverUrl);
 	}
     }
 
@@ -59,6 +65,14 @@ class FoundryAI {
 
     ping() {
 	this.socket.send("Ping");
+    }
+
+    sendCanvas(canvas) {
+	Log.debug(canvas);
+	const cp = {
+	    dimensions: canvas.dimensions
+	};
+	this.socket.send(JSON.stringify(cp));
     }
 }
 
